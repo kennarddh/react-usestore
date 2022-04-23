@@ -7,7 +7,12 @@
 		"build": "babel ./src --out-dir ./build",
 		"lint": "eslint .",
 		"prettier:fix": "prettier -w \"src/**/*.{js,jsx}\"",
-		"prettier:check": "prettier -c \"src/**/*.{js,jsx}\""
+		"prettier:check": "prettier -c \"src/**/*.{js,jsx}\"",
+		"prepare": "npm run build",
+		"prepublishOnly": "npm run lint",
+		"preversion": "npm run lint",
+		"version": "npm run format && git add -A src",
+		"postversion": "git push && git push --tags"
 	},
 	"repository": {
 		"type": "git",
@@ -40,5 +45,7 @@
 		"eslint-plugin-prettier": "^4.0.0",
 		"prettier": "^2.6.2"
 	},
-	"files": ["lib/**/*"]
+	"files": [
+		"lib/**/*"
+	]
 }
