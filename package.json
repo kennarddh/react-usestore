@@ -4,7 +4,10 @@
 	"description": "React usestore hooks for state management",
 	"main": "lib/index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "babel ./src --out-dir ./build",
+		"lint": "eslint .",
+		"prettier:fix": "prettier -w \"src/**/*.{js,jsx}\"",
+		"prettier:check": "prettier -c \"src/**/*.{js,jsx}\""
 	},
 	"repository": {
 		"type": "git",
@@ -14,6 +17,7 @@
 		"state",
 		"state-management",
 		"react",
+		"reactjs",
 		"javascript",
 		"usestore",
 		"hooks"
@@ -27,5 +31,13 @@
 	"peerDependencies": {
 		"react": ">=16.8.0",
 		"react-dom": ">=16.8.0"
+	},
+	"devDependencies": {
+		"eslint": "^8.14.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"prettier": "^2.6.2"
 	}
 }
