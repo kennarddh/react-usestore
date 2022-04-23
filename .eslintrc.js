@@ -1,6 +1,10 @@
 module.exports = {
-	extends: ['airbnb-base', 'plugin:prettier/recommended'],
-	plugins: ['prettier'],
+	extends: [
+		'airbnb-base',
+		'plugin:prettier/recommended',
+		'plugin:react/recommended',
+	],
+	plugins: ['prettier', 'react'],
 	parserOptions: {
 		ecmaVersion: 2020,
 	},
@@ -13,5 +17,7 @@ module.exports = {
 		],
 		'no-console': 'off',
 		'no-unused-vars': 'warn',
+		'react/prop-types': 'off',
+		'import/prefer-default-export': 'off',
 	},
 }
