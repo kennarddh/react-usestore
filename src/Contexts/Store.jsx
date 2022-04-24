@@ -1,6 +1,6 @@
 import React, { createContext } from 'react'
 
-const StoreContext = createContext({})
+export const StoreContext = createContext({})
 
 const StoreContextProvider = ({ children }) => {
 	return <StoreContext.Provider value={{}}>{children}</StoreContext.Provider>
