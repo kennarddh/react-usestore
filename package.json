@@ -2,8 +2,8 @@
 	"name": "react-usestore",
 	"version": "0.1.0",
 	"description": "React usestore hooks for state management",
-	"main": "lib/cjs/index.js",
-	"module": "lib/esm/index.js",
+	"main": "lib/bundle.cjs.js",
+	"module": "lib/bundle.esm.js",
 	"scripts": {
 		"rollup": "rollup -c",
 		"lint": "eslint .",
