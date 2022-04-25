@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 
 // Contexts
 import { StoreContext } from '../Contexts/Store'
@@ -11,15 +11,9 @@ const useStore = (storeName, initialValue) => {
 		RemoveStore: RemoveStoreContext,
 	} = useContext(StoreContext)
 
-	const [Store, SetStore] = useState(Stores[storeName] || initialValue)
-
 	useEffect(() => {
-		if (!Stores[storeName]) CreateStore(storeName, initialValue)
-	}, [storeName])
-
-	useEffect(() => {
-		if (Stores[storeName] !== Store) SetStore(Stores[storeName])
-	}, [Store])
+		CreateStore(storeName, initialValue)
+	}, [CreateStore, initialValue, storeName])
 
 	const RemoveStore = () => {
 		RemoveStoreContext(storeName)
@@ -29,7 +23,7 @@ const useStore = (storeName, initialValue) => {
 		UpdateStoreContext(storeName, value)
 	}
 
-	return [Store, UpdateStore, RemoveStore]
+	return [Stores[storeName], UpdateStore, RemoveStore]
 }
 
 export default useStore
