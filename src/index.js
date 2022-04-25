@@ -1,5 +1,6 @@
-import React from 'react'
+import StoreProvider from './Contexts/Store'
+import useStore from './Hooks/Store'
 
-const ExampleComponent = () => <p>a</p>
+export default useStore
 
-export { ExampleComponent }
+export { StoreProvider }
