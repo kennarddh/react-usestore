@@ -19,14 +19,14 @@ export default {
 		},
 	],
 	plugins: [
-		babel({
-			exclude: 'node_modules/**',
-			babelHelpers: 'bundled',
-		}),
 		nodeResolve({
 			extensions: ['.js', '.jsx'],
 		}),
 		commonjs(),
+		babel({
+			exclude: 'node_modules/**',
+			babelHelpers: 'bundled',
+		}),
 		terser(),
 	],
 }
