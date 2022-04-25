@@ -3,26 +3,26 @@ import React, { createContext, useState } from 'react'
 export const StoreContext = createContext({})
 
 const StoreContextProvider = ({ children }) => {
-	const [Store, SetStore] = useState({})
+	const [Stores, SetStores] = useState({})
 
 	const UpdateStore = (storeName, value) => {
-		SetStore({ ...Store, [storeName]: value })
+		SetStores({ ...Stores, [storeName]: value })
 
 		return true
 	}
 
 	const CreateStore = (storeName, initialValue = {}) => {
-		if (Store[storeName]) return false
+		if (Stores[storeName]) return false
 
-		SetStore({ ...Store, [storeName]: initialValue })
+		SetStores({ ...Stores, [storeName]: initialValue })
 
 		return true
 	}
 
 	const RemoveStore = storeName => {
-		if (!Store[storeName]) return false
+		if (!Stores[storeName]) return false
 
-		SetStore(prevStore => {
+		SetStores(prevStore => {
 			const { [storeName]: _, ...result } = prevStore
 
 			return result
@@ -33,7 +33,7 @@ const StoreContextProvider = ({ children }) => {
 
 	return (
 		<StoreContext.Provider
-			value={{ Store, SetStore, UpdateStore, CreateStore, RemoveStore }}
+			value={{ Stores, SetStores, UpdateStore, CreateStore, RemoveStore }}
 		>
 			{children}
 		</StoreContext.Provider>
