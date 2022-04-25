@@ -23,7 +23,9 @@ export default {
 			exclude: 'node_modules/**',
 			babelHelpers: 'bundled',
 		}),
-		nodeResolve(),
+		nodeResolve({
+			extensions: ['.js', '.jsx'],
+		}),
 		commonjs(),
 		terser(),
 	],
