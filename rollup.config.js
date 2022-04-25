@@ -5,7 +5,7 @@ import { terser } from 'rollup-plugin-terser'
 
 export default {
 	input: 'src/index.js',
-	external: ['react'],
+	external: ['react', 'react-dom'],
 	output: [
 		{
 			file: 'lib/bundle.cjs.js',
