@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useCallback } from 'react'
 
 // Contexts
 import { StoreContext } from '../Contexts/Store'
@@ -11,9 +11,15 @@ const useStore = (storeName, initialValue) => {
 		RemoveStore: RemoveStoreContext,
 	} = useContext(StoreContext)
 
-	useEffect(() => {
+	const CreateNewStore = useCallback(() => {
 		CreateStore(storeName, initialValue)
 	}, [CreateStore, initialValue, storeName])
+
+	useEffect(() => {
+		if (initialValue) {
+			CreateNewStore()
+		}
+	}, [CreateNewStore, initialValue])
 
 	const RemoveStore = () => {
 		RemoveStoreContext(storeName)
