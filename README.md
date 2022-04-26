@@ -43,6 +43,42 @@ const App = () => {
 export default App
 ```
 
+### Using WithStoreProvider HOC
+
+```javascript
+import React from 'react'
+
+import { useStore, StoreProvider } from '@kennarddh/react-usestore'
+
+const WithStoreProvider = WrappedComponent => {
+	const Wrapper = () => (
+		<StoreProvider>
+			<WrappedComponent />
+		</StoreProvider>
+	)
+
+	return Wrapper
+}
+
+const SubSubComponent = () => {
+	const [Store] = useStore('test-store')
+
+	return <p>SubSubComponent: {Store?.data}</p>
+}
+
+const SubComponent = () => <SubSubComponent />
+
+const Component = () => {
+	useStore('test-store', { data: 'dataForSubSubComponent' })
+
+	return <SubComponent />
+}
+
+const App = () => <Component />
+
+export default WithStoreProvider(App)
+```
+
 ### Using WithStoreConsumer HOC
 
 ```javascript
