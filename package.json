@@ -12,7 +12,7 @@
 		"prepare": "npm run rollup",
 		"prepublishOnly": "npm run lint",
 		"preversion": "npm run lint",
-		"version": "npm run format && git add -A src",
+		"version": "npm run prettier:fix && git add -A src",
 		"postversion": "git push && git push --tags"
 	},
 	"repository": {
