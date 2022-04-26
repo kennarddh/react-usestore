@@ -43,6 +43,45 @@ const App = () => {
 export default App
 ```
 
+### Using WithStoreConsumer HOC
+
+```javascript
+import React from 'react'
+
+import {
+	useStore,
+	StoreProvider,
+	WithStoreConsumer,
+} from '@kennarddh/react-usestore'
+
+class SubSubComponent extends React.Component {
+	render() {
+		const { Store } = this.props['test-store']
+		return <p>{Store?.data}</p>
+	}
+}
+
+const WrappedSubSubComponent = WithStoreConsumer(SubSubComponent, 'test-store')
+
+const SubComponent = () => <WrappedSubSubComponent />
+
+const Component = () => {
+	useStore('test-store', { data: 'dataForWrappedSubSubComponent' })
+
+	return <SubComponent />
+}
+
+const App = () => {
+	return (
+		<StoreProvider>
+			<Component />
+		</StoreProvider>
+	)
+}
+
+export default App
+```
+
 ## License
 
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
