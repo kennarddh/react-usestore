@@ -13,7 +13,7 @@
 		"prepublishOnly": "npm run lint",
 		"preversion": "npm run lint",
 		"version": "npm run prettier:fix && git add -A src",
-		"postversion": "git push && git push --tags"
+		"postversion": "git push origin main && git push --tags"
 	},
 	"repository": {
 		"type": "git",
