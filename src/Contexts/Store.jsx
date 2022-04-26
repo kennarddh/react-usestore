@@ -10,7 +10,7 @@ const StoreContextProvider = ({ children }) => {
 			if (typeof valueOrCallback === 'function') {
 				return {
 					...prevStores,
-					[storeName]: valueOrCallback(Stores[storeName]),
+					[storeName]: valueOrCallback(prevStores[storeName]),
 				}
 			}
 
