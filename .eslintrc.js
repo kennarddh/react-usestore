@@ -25,6 +25,9 @@ module.exports = {
 				extensions: ['.js', '.jsx'],
 			},
 		},
+		react: {
+			version: 'detect',
+		},
 	},
 	rules: {
 		'import/prefer-default-export': 'off',
