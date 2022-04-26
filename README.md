@@ -6,6 +6,8 @@ React hooks for state management
 
 usestore is a library for managing state in React applications.
 
+Here is the [demo](https://react-kttczk.stackblitz.io/).
+
 ## Installation
 
 ```bash
