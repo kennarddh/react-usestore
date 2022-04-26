@@ -19,8 +19,8 @@ const useStore = (storeName, initialValue) => {
 		RemoveStoreContext(storeName)
 	}
 
-	const UpdateStore = value => {
-		UpdateStoreContext(storeName, value)
+	const UpdateStore = valueOrCallback => {
+		UpdateStoreContext(storeName, valueOrCallback)
 	}
 
 	return [Stores[storeName], UpdateStore, RemoveStore]

@@ -5,8 +5,20 @@ export const StoreContext = createContext({})
 const StoreContextProvider = ({ children }) => {
 	const [Stores, SetStores] = useState({})
 
-	const UpdateStore = (storeName, value) => {
-		SetStores({ ...Stores, [storeName]: value })
+	const UpdateStore = (storeName, valueOrCallback) => {
+		SetStores(prevStores => {
+			if (typeof valueOrCallback === 'function') {
+				return {
+					...prevStores,
+					[storeName]: valueOrCallback(Stores[storeName]),
+				}
+			}
+
+			return {
+				...prevStores,
+				[storeName]: valueOrCallback,
+			}
+		})
 
 		return true
 	}
