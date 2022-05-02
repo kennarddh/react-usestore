@@ -31,6 +31,7 @@ const SubComponent = () => <SubSubComponent />
 const Component = () => {
 	// Create a store
 	// Pass true to third argument to store in localstorage
+	// Key in localstorage is 'react_usestore__{storeName}'
 	useStore('test-store', { data: 'dataForSubSubComponent' })
 
 	return <SubComponent />
