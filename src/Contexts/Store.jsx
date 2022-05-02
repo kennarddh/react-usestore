@@ -7,26 +7,47 @@ const StoreContextProvider = ({ children }) => {
 
 	const UpdateStore = (storeName, valueOrCallback) => {
 		SetStores(prevStores => {
+			let value
+
 			if (typeof valueOrCallback === 'function') {
-				return {
-					...prevStores,
-					[storeName]: valueOrCallback(prevStores[storeName]),
-				}
+				value = valueOrCallback(prevStores[storeName].value)
+			} else {
+				value = valueOrCallback
+			}
+
+			if (prevStores[storeName].localstorage) {
+				localStorage.setItem(
+					`react_usestore__${storeName}`,
+					JSON.stringify(value)
+				)
 			}
 
 			return {
 				...prevStores,
-				[storeName]: valueOrCallback,
+				[storeName]: {
+					value,
+					localstorage: prevStores[storeName].localstorage,
+				},
 			}
 		})
 
 		return true
 	}
 
-	const CreateStore = (storeName, initialValue = {}) => {
+	const CreateStore = (storeName, initialValue, localstorage) => {
 		if (Stores[storeName]) return false
 
-		SetStores({ ...Stores, [storeName]: initialValue })
+		SetStores({
+			...Stores,
+			[storeName]: { value: initialValue, localstorage },
+		})
+
+		if (localstorage) {
+			localStorage.setItem(
+				`react_usestore__${storeName}`,
+				JSON.stringify(initialValue)
+			)
+		}
 
 		return true
 	}
