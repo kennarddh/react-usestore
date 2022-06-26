@@ -1,6 +1,6 @@
 {
 	"name": "@kennarddh/react-usestore",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "React hooks for state management",
 	"main": "lib/bundle.cjs.js",
 	"module": "lib/bundle.esm.js",
