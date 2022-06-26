@@ -1,4 +1,4 @@
-# React usestore
+# DEPRECATED React usestore
 
 React hooks for state management
 
